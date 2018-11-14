@@ -1,3 +1,4 @@
+import{questions} from './questions'
 window.onload = function() {
   //options
   const optionOl = document.getElementById('options');
@@ -20,35 +21,53 @@ window.onload = function() {
   let count = 0;
 
   goButton.addEventListener('click', function() {
+    answers = [];
+    count = 0;
     greetDiv.className = 'hide';
     quizDiv.className = '';
     loop();
   })
 
   confButton.addEventListener('click', function() {
-    questions[count].check(questions[count].choises, questions[count].correct, answers);
+    questions[count].check(optionOl, answers, questions[count].correct);
     count++;
-    console.log(answers);
     if(count < questions.length) {
       loop();
     } else {
       quizDiv.className = 'hide';
       resultDiv.className = '';
+      showAnswers();
     }
   })
 
-  // // define function which fill head and radio buttons, + confirm, and give you a 10 sec to decide
+  submButton.addEventListener('click', function() {
+    resultDiv.className = 'hide';
+    greetDiv.className = '';
+    document.querySelector('.answer-list').remove()
+  })
+ // define function which fill head and radio buttons, + confirm, and give you a 10 sec to decide
   function loop() {
     optionOl.innerHTML = '';
     questH.innerHTML = questions[count].quest;
     questions[count].render(questions[count].choises, optionOl);
-
     setTimeout(function() {
       count++;
       if(count < questions.length) {
-        answers.push('NA');
+        answers.push(false);
         loop();
       }
     }, 10000)
+  }
+
+  function showAnswers() {
+    for(let i = 0; i < answers.length; i++) {
+      let li = document.createElement('li');
+      let userAnswers = []
+      answers.forEach(function (el) {
+        
+      })
+      li.innerHTML = answers[i];
+      resultList.appendChild(li);
+    }
   }
 }

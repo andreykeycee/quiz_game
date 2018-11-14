@@ -1,0 +1,27 @@
+{
+  "name": "quiz_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/js/main.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack-dev-server --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreykeycee/quiz_game.git"
+  },
+  "author": "andreykeycee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreykeycee/quiz_game/issues"
+  },
+  "homepage": "https://github.com/andreykeycee/quiz_game#readme",
+  "devDependencies": {
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {}
+}
